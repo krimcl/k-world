@@ -47,23 +47,31 @@ while True:
 		print stats
 		break
 	if choice == 4:
-		print "work in progress"
+		attrib = ["str","dex","con","int","wis","cha"]
+		stats = []
+		for _ in range(6):
+                        rolls = dice.roll_d6(3)
+                        stat = sum(rolls)
+                        stats.append(stat)
+		attribs = dict(zip(attrib, stats))
+		print attribs		
 		break
 	print "please try again"
 #start of attributes
 attrib = ["str","dex","con","int","wis","cha"]
-attribs = {}
-for _ in attrib:
-	while True:
-		stat = int(input('what do you want '+str(_)+' to be: '))
-		if stat in stats:
-			attribs[_] = stat
-			stats.remove(stat)
-			print stats
-			break
-		else:
-			print "you didn't roll that"
-			print stats
+if 'attribs' not in locals():
+	attribs = {}
+	for _ in attrib:
+		while True:
+			stat = int(input('what do you want '+str(_)+' to be: '))
+			if stat in stats:
+				attribs[_] = stat
+				stats.remove(stat)
+				print stats
+				break
+			else:
+				print "you didn't roll that"
+				print stats
 #end of first attributes section
 amods = mod.ablemod(attribs)
 print amods
