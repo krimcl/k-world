@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #rev 0.01
 #writen by Kevin Burkeland
-import dice
+import dice, mod, cclass
 print "Welcome to revision .01 of Kevin Burkelands Pathfinder Character Gen script"
 print "Pick your stat gen style:"
 print "1. Generous: 4d6 drops the lowest and gives you one 18 to start with"
@@ -50,7 +50,7 @@ while True:
 		print "work in progress"
 		break
 	print "please try again"
-######start of attributes
+#start of attributes
 attrib = ["str","dex","con","int","wis","cha"]
 attribs = {}
 for _ in attrib:
@@ -64,7 +64,6 @@ for _ in attrib:
 		else:
 			print "you didn't roll that"
 			print stats
-print attribs
-amod = {'str':(attribs['str']-10)/2,'dex':(attribs['dex']-10)/2,'con':(attribs['con']-10)/2,'int':(attribs['int']-10)/2,'wis':(attribs['wis']-10)/2,'cha':(attribs['cha']-10)/2}
-print amod
-
+#end of first attributes section
+amods = mod.ablemod(attribs)
+print amods
