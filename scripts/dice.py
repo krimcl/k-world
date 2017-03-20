@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import random
 def roll_d6(number_of_dice):
     rolls = []
 

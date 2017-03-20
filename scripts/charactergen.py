@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #rev 0.01
 #writen by Kevin Burkeland
+import dice
 print "Welcome to revision .01 of Kevin Burkelands Pathfinder Character Gen script"
 print "Pick your stat gen style:"
 print "1. Generous: 4d6 drops the lowest and gives you one 18 to start with"
@@ -14,16 +15,32 @@ while True:
 	#makes sure its a number
 	choice = int(choice)
 	if choice == 1:
-		print "bonk"
+		stats = []
+		for _ in range(5):
+			rolls = dice.roll_d6(4)
+			stat = sum(rolls) - min(rolls)
+			stats.append(stat)
+		stats.append(18)
+		print stats
 		break
 	if choice == 2:
-		print "foo"
+		stats = []
+		for _ in range(6):
+			rolls = dice.roll_d6(4)
+			stat = sum(rolls) - min(rolls)
+			stats.append(stat)
+		print stats
 		break
 	if choice == 3:
-		print "bar"
+		stats = []
+		for _ in range(6):
+			rolls = dice.roll_d6(3)
+			stat = sum(rolls)
+			stats.append(stat)
+		print stats
 		break
 	if choice == 4:
-		print "thing"
+		print "work in progress comming soon"
 		break
-	print "you cheeky bastard"
+	print "please try again"
 
