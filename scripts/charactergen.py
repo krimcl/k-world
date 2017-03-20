@@ -15,16 +15,21 @@ while True:
 	#makes sure its a number
 	choice = int(choice)
 	if choice == 1:
+		#initialize the stats array
 		stats = []
+		#rolls 5 times
 		for _ in range(5):
 			rolls = dice.roll_d6(4)
 			stat = sum(rolls) - min(rolls)
 			stats.append(stat)
+		#adds the 18
 		stats.append(18)
 		print stats
 		break
 	if choice == 2:
+		#initialize the stats array
 		stats = []
+		#rolls 6 times
 		for _ in range(6):
 			rolls = dice.roll_d6(4)
 			stat = sum(rolls) - min(rolls)
@@ -32,7 +37,9 @@ while True:
 		print stats
 		break
 	if choice == 3:
+		#initialiaze the stats array
 		stats = []
+		#rolls 6 times
 		for _ in range(6):
 			rolls = dice.roll_d6(3)
 			stat = sum(rolls)
@@ -43,4 +50,18 @@ while True:
 		print "work in progress"
 		break
 	print "please try again"
-
+######start of attributes
+attrib = ["str","dex","con","int","wis","cha"]
+attribs = {}
+for _ in attrib:
+	while True:
+		stat = int(input('what do you want '+str(_)+' to be: '))
+		if stat in stats:
+			attribs[_] = stat
+			stats.remove(stat)
+			print stats
+			break
+		else:
+			print "you didn't roll that"
+			print stats
+print attribs
