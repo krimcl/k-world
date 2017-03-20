@@ -40,7 +40,7 @@ while True:
 		print stats
 		break
 	if choice == 4:
-		print "work in progress comming soon"
+		print "work in progress"
 		break
 	print "please try again"
 
